@@ -1,0 +1,35 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:best-practices"],
+  "packageRules": [
+    {
+      "description": "Disable Go modules updates entirely",
+      "matchManagers": ["gomod"],
+      "enabled": false
+    },
+    {
+      "description": "Block major updates for Dockerfiles to prevent breaking infrastructure",
+      "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "Enable silent auto-merge for GitHub Actions patch and minor updates",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "description": "Completely ignore all package files inside the legacy directory",
+      "matchFileNames": ["legacy-code/**"],
+      "enabled": false
+    },
+    {
+      "description": "Require manual dashboard approval for major updates of npm packages",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
