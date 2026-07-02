@@ -4,14 +4,17 @@
   "pruneStaleBranches": true,
   "rebaseWhen": "behind-base-branch",
   "recreateWhen": "always",
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "dependencyDashboard": false,
   "packageRules": [
     {
-      "description": "Disable Go modules updates entirely",
+      "description": "Allow Go modules updates entirely",
       "matchManagers": ["gomod"],
       "enabled": true
     },
     {
-      "description": "Block major updates for Dockerfiles to prevent breaking infrastructure",
+      "description": "Allow major updates for Dockerfiles",
       "matchManagers": ["dockerfile"],
       "matchUpdateTypes": ["major"],
       "enabled": true
@@ -25,15 +28,14 @@
       "platformAutomerge": true
     },
     {
-      "description": "Completely ignore all package files inside the legacy directory",
+      "description": "Allow updates inside the legacy directory",
       "matchFileNames": ["**/legacy-code/**"],
       "enabled": true
     },
     {
-      "description": "Require manual dashboard approval for major updates of npm packages",
+      "description": "Allow automatic PRs for npm major packages (No dashboard approval needed)",
       "matchManagers": ["npm"],
-      "matchUpdatTypes": ["major"],
-      "dependencyDashboardApproval": true,
+      "matchUpdateTypes": ["major"],
       "enabled": true
     }
   ]
