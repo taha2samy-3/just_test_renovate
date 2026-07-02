@@ -3,6 +3,7 @@
   "extends": ["config:best-practices"],
   "pruneStaleBranches": true,
   "rebaseWhen": "behind-base-branch",
+  "recreateWhen": "always",
   "packageRules": [
     {
       "description": "Disable Go modules updates entirely",
