@@ -8,13 +8,13 @@
     {
       "description": "Disable Go modules updates entirely",
       "matchManagers": ["gomod"],
-      "enabled": false
+      "enabled": true
     },
     {
       "description": "Block major updates for Dockerfiles to prevent breaking infrastructure",
       "matchManagers": ["dockerfile"],
       "matchUpdateTypes": ["major"],
-      "enabled": false
+      "enabled": true
     },
     {
       "description": "Enable silent auto-merge for GitHub Actions patch and minor updates via PR",
@@ -27,7 +27,7 @@
     {
       "description": "Completely ignore all package files inside the legacy directory",
       "matchFileNames": ["**/legacy-code/**"],
-      "enabled": false
+      "enabled": true
     },
     {
       "description": "Require manual dashboard approval for major updates of npm packages",
