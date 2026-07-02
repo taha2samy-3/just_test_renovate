@@ -3,12 +3,14 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *'
+permissions:
+  contents: write        
+  pull-requests: write   
+  issues: write          
 
+  
 jobs:
   renovate:
-    permissions:
-      contents: write
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
