@@ -32,8 +32,9 @@
     {
       "description": "Require manual dashboard approval for major updates of npm packages",
       "matchManagers": ["npm"],
-      "matchUpdateTypes": ["major"],
-      "dependencyDashboardApproval": true
+      "matchUpdatشeTypes": ["major"],
+      "dependencyDashboardApproval": true,
+      "enabled": true
     }
   ]
 }
