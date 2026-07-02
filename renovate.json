@@ -4,6 +4,7 @@
   "pruneStaleBranches": true,
   "rebaseWhen": "behind-base-branch",
   "recreateWhen": "always",
+  "prCreation": "immediate",
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
   "dependencyDashboard": false,
