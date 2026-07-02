@@ -1,6 +1,8 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "$schema": "https://renovatebot.com",
   "extends": ["config:best-practices"],
+  "pruneStaleBranches": true,
+  "rebaseWhen": "behind-base-branch",
   "packageRules": [
     {
       "description": "Disable Go modules updates entirely",
@@ -14,15 +16,16 @@
       "enabled": false
     },
     {
-      "description": "Enable silent auto-merge for GitHub Actions patch and minor updates",
+      "description": "Enable silent auto-merge for GitHub Actions patch and minor updates via PR",
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "pr",
+      "platformAutomerge": true
     },
     {
       "description": "Completely ignore all package files inside the legacy directory",
-      "matchFileNames": ["legacy-code/**"],
+      "matchFileNames": ["**/legacy-code/**"],
       "enabled": false
     },
     {
@@ -31,7 +34,5 @@
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true
     }
-  ],
-"pruneStaleBranches": true
-
+  ]
 }
